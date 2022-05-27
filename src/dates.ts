@@ -16,6 +16,13 @@ export default class Dates {
         return Dates._parseDate(nextMonth);
     }
 
+    static calculateFutureDay(increaseDay:number) :string {
+        const date = new Date();
+        let futureDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + increaseDay);
+
+        return Dates._parseDate(futureDay);
+    }
+
     static _parseDate(date) :string {
         let year = date.getFullYear()
         let month = addPrefixNull(date.getMonth() + 1)

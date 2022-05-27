@@ -1,4 +1,5 @@
 import { renderBlock } from './lib.js'
+import Dates from './dates.js'
 
 export function renderSearchFormBlock (dateToday:string, lastDayNextMoth:string) :void {
 
@@ -21,11 +22,11 @@ export function renderSearchFormBlock (dateToday:string, lastDayNextMoth:string)
         <div class="row">
           <div>
             <label for="check-in-date">Дата заезда</label>
-            <input id="check-in-date" type="date" value="${dateToday}" min="${dateToday}" max="${dateToday}" name="checkin" />
+            <input id="check-in-date" type="date" value="${Dates.calculateFutureDay(1)}" min="${dateToday}" max="${lastDayNextMoth}" name="checkin" />
           </div>
           <div>
             <label for="check-out-date">Дата выезда</label>
-            <input id="check-out-date" type="date" value="2021-05-13" min="2021-05-11" max="${lastDayNextMoth}" name="checkout" />
+            <input id="check-out-date" type="date" value="${Dates.calculateFutureDay(3)}" min="${dateToday}" max="${lastDayNextMoth}" name="checkout" />
           </div>
           <div>
             <label for="max-price">Макс. цена суток</label>
